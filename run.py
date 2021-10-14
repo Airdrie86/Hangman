@@ -1,4 +1,10 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 import random
-from words import word_list
+from words import words
+
+
+def get_the_words():
+    word = random.choice(words)
+return word.upper()
+
+def guess_the_word(game):
+    
