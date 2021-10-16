@@ -3,7 +3,6 @@ import string
 import operator
 
 
-
 words_available = ["BEEP", "DART", "CORE", "FROG"]
 
 
@@ -12,7 +11,6 @@ word = word.upper()
 
 max_tries = 6
 current_guess = list("_" * len(word))
-
 guessed = False
 used_letters = []
 guessed_words = []
@@ -26,7 +24,7 @@ while not guessed and max_tries > 0:
         guessed = True
     if len(guess) == 1 and guess in word:
         print("you guessed right")
-        for x in range(0,len(word)):
+        for x in range(0, len(word)):
             letter = word[x]
             if guess == letter:
                 current_guess[x] = guess
@@ -37,8 +35,6 @@ while not guessed and max_tries > 0:
         print(f"Used letters = {used_letters}")
         max_tries -= 1
         print(f"Tries left = {max_tries}")
-        
-    
 if guessed:
     print(f"well done, the correct word was {word}")
 else:

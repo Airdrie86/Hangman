@@ -3,51 +3,112 @@ import string
 import operator
 
 
+words_available = ["BEEP", "DART", "CORE", "FROG", 
+]
 
-words_available = ["BEEP", "DART", "CORE", "FROG"]
+
+stages = [  # final state: head, torso, both arms, and both legs
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # head, torso, both arms, and one leg
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+                """,
+                # head, torso, and both arms
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |      
+                   -
+                """,
+                # head, torso, and one arm
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                """
+]
 
 
-def get_word():
-    word = random.choice(words_available)
-    word = word.upper()
-    return word
+word = random.choice(words_available)
+word = word.upper()
+max_tries = 6
+current_guess = list("_" * len(word))
+guessed = False
+used_letters = []
+guessed_words = []
+print("Welcome to Guess The Word!")
+while not guessed and max_tries > 0:
+    print(current_guess)
+    guess = input("Please pick a letter or guess the word:").upper()
 
-def game(word):
-    max_tries = 6
-    current_guess = list("_" * len(word))
-    guessed = False
-    used_letters = []
-    print("Welcome to Guess The Word!")
-    while not guessed and max_tries > 0:
-        return current_guess
-        print(current_guess)
-        guess = input("Please pick a letter or guess the word:").upper()
-
-        if guess == word:
+    if guess == word:
+        guessed = True
+    if len(guess) == 1 and guess in word:
+        print("you guessed right")
+        for x in range(0, len(word)):
+            letter = word[x]
+            if guess == letter:
+                current_guess[x] = guess
+        if "_" not in current_guess:
             guessed = True
-        if len(guess) == 1 and guess in word:
-            print("you guessed right")
-            for x in range(0,len(word)):
-                letter = word[x]
-                if guess == letter:
-                    current_guess[x] = guess
-            if "_" not in current_guess:
-                guessed = True
-        else:
-            used_letters.append(guess)
-            print(f"Used letters = {used_letters}")
-            max_tries -= 1
-            print(f"Tries left = {max_tries}")
-        
-    if guessed:
-        print(f"well done, the correct word was {word}")
     else:
-        print(f"yo no good the word was {word}")
-
-
-def main():
-    word = get_word
-    game(word)
-
-if __name__ == "__main__":
-    main()
+        used_letters.append(guess)
+        print(f"Used letters = {used_letters}")
+        max_tries -= 1
+        print(stages[max_tries])
+        print(f"Tries left = {max_tries}") 
+if guessed:
+    print(f"well done, the correct word was {word}")
+else:
+    print(f"yo no good the word was {word}")   
