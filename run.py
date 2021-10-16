@@ -86,12 +86,12 @@ used_letters = []
 guessed_words = []
 # Introducing the game to the user
 print("Greetings Traveller! The game of Hangman awaits you!")
-name = input("Please enter your name:")
+name = input("Please enter your name:\n")
 print(f"Hello {name}! Welcome to Hangman!")
 # Randomly choosing a word for the game
 while not guessed and max_tries > 0:
     print(current_guess)
-    guess = input(f"Please pick a letter {name} or guess the word:").upper()
+    guess = input(f"Please pick a letter {name} or guess the word:\n").upper()
 # Code for the main game of hangman
     if guess == word:
         guessed = True
