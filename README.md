@@ -10,3 +10,6 @@ The game will atomatically generate a word, which will be visible as ("_") and t
 
 # Features
 ## Existing Features
+* Welcome screen
+* Allows user to enter name
+* Allows multiple user inputs
