@@ -12,6 +12,7 @@ word = word.upper()
 
 max_tries = 6
 current_guess = list("_" * len(word))
+current_guess = ''.join(str(current_guess).split(','))
 guessed = False
 used_letters = []
 guessed_words = []
@@ -30,8 +31,11 @@ while not guessed and max_tries > 0:
             if guess == letter:
                 current_guess[x] = guess
     else:
+        used_letters.append(guess)
+        print(f"Used letters = {used_letters}")
         max_tries -= 1
-        print(max_tries)
+        print(f"Tries left = {max_tries}")
+        
     
 if guessed:
     print("well done")
