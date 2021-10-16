@@ -86,6 +86,7 @@ used_letters = []
 guessed_words = []
 # Introducing the game to the user
 print("Greetings Traveller! The game of Hangman awaits you!")
+print(hangman[0])
 name = input("Please enter your name:\n")
 print(f"Hello {name}! Welcome to Hangman!")
 # Randomly choosing a word for the game
