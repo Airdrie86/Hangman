@@ -1,1 +1,5 @@
+words_available = ["BEEP", "DART", "CORE", "FROG", "BOUNTY",
+"CACTUS", "WORTHY", "SUBMIT", "DECOY", "ESSAY", "GENIE", 
+"BAFFLED", "DENIED", "UPTIGHT", "TYPHOON",
+ "AFFORDED", "BACKDROP", ]
 

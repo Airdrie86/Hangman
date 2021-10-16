@@ -1,13 +1,10 @@
 import random
 import string
 import operator
+from words import words_available
 
-
-words_available = ["BEEP", "DART", "CORE", "FROG", 
-]
-
-
-stages = [  # final state: head, torso, both arms, and both legs
+# The visuals for hangman(produced from stack overflow)
+hangman = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -87,15 +84,19 @@ current_guess = list("_" * len(word))
 guessed = False
 used_letters = []
 guessed_words = []
-print("Welcome to Guess The Word!")
+# Introducing the game to the user
+print("Greetings Traveller! The game of Hangman awaits you!")
+name = input("Please enter your name:")
+print(f"Hello {name}! Welcome to Hangman!")
+# Randomly choosing a word for the game
 while not guessed and max_tries > 0:
     print(current_guess)
-    guess = input("Please pick a letter or guess the word:").upper()
-
+    guess = input(f"Please pick a letter {name} or guess the word:").upper()
+# Code for the main game of hangman
     if guess == word:
         guessed = True
     if len(guess) == 1 and guess in word:
-        print("you guessed right")
+        print(f"Lucky guess {name}!")
         for x in range(0, len(word)):
             letter = word[x]
             if guess == letter:
@@ -106,9 +107,10 @@ while not guessed and max_tries > 0:
         used_letters.append(guess)
         print(f"Used letters = {used_letters}")
         max_tries -= 1
-        print(stages[max_tries])
-        print(f"Tries left = {max_tries}") 
+        print(hangman[max_tries])
+        print(f"Tries left = {max_tries}")
+# Confirms to user if they have manged to correctly guess the word or not 
 if guessed:
-    print(f"well done, the correct word was {word}")
+    print(f"well done {name}, the correct word was {word}")
 else:
-    print(f"yo no good the word was {word}")   
+    print(f"You can do better than that {name}! The word was {word}")
