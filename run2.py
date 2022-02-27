@@ -21,7 +21,7 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |      O
                    |     \\|/
                    |      |
-                   |     / 
+                   |     /
                    -
                 """,
                 # head, torso, and both arms
@@ -31,7 +31,7 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |      O
                    |     \\|/
                    |      |
-                   |      
+                   |
                    -
                 """,
                 # head, torso, and one arm
@@ -41,7 +41,7 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |      O
                    |     \\|
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head and torso
@@ -51,7 +51,7 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |      O
                    |      |
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head
@@ -59,19 +59,19 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    --------
                    |      |
                    |      O
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
                    -
                 """,
                 # initial empty state
                 """
                    --------
                    |      |
-                   |      
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
+                   |
                    -
                 """
 ]
@@ -118,7 +118,7 @@ def game():
             max_tries -= 1
             print(hangman[max_tries])
             print(f"Tries left = {max_tries}")
-    # Confirms to user if they have manged to correctly guess the word or not 
+    # Confirms to user if they have manged to correctly guess the word or not
     if guessed:
         print(f"well done {name}, the correct word was {word}")
     else:
