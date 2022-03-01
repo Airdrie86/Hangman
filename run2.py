@@ -98,12 +98,13 @@ def game():
     print(hangman[6])
     name = input("Please enter your name:\n")
     print(f"Hello {name}! Welcome to Hangman!")
+    print(current_guess)
     # Randomly choosing a word for the game
     if guessed and max_tries > 0:
         print(max_tries)
     else:
         guess = input(f"Please pick a letter {name} or guess the word:\n").upper()
-
+        print(current_guess)
     # Code for the main game of hangman
     if guess == word:
         guessed = True
@@ -130,3 +131,32 @@ def game():
 
 if __name__ == '__main__':
     game()
+
+
+# def example():
+#     """ test """
+#     lives = 6
+#     word = 'test'
+#     guessed = []
+
+#     while True:
+#         letter = input('PLease guess a letter \n')
+
+#         if letter in word:
+#             guessed.append(letter)
+#             print('correct')
+#             if len(word) == len(guessed): break
+#         else:
+#             lives -= 1
+#             print('wrong, lives left: ', lives)
+#             if lives == 0: break
+
+
+#     if lives == 0:
+#         print('Lost')
+#     else:
+#         print('Won')
+
+
+# if __name__ == '__main__':
+#     example()
