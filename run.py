@@ -79,9 +79,9 @@ hangman = [  # final state: head, torso, both arms, and both legs
 
 word = random.choice(words_available)
 word = word.upper()
-max_tries = 6
+MAX_TRIES = 6
 current_guess = list("_" * len(word))
-guessed = False
+GUESSED = False
 used_letters = []
 guessed_words = []
 # Introducing the game to the user
@@ -90,12 +90,12 @@ print(hangman[6])
 name = input("Please enter your name:\n")
 print(f"Hello {name}! Welcome to Hangman!")
 # Randomly choosing a word for the game
-while not guessed and max_tries > 0:
+while not GUESSED and MAX_TRIES > 0:
     print(current_guess)
     guess = input(f"Please pick a letter {name} or guess the word:\n").upper()
 # Code for the main game of hangman
     if guess == word:
-        guessed = True
+        GUESSED = True
     if len(guess) == 1 and guess in word:
         print(f"Lucky guess {name}!")
         for x in range(0, len(word)):
@@ -103,15 +103,15 @@ while not guessed and max_tries > 0:
             if guess == letter:
                 current_guess[x] = guess
         if "_" not in current_guess:
-            guessed = True
+            GUESSED = True
     else:
         used_letters.append(guess)
         print(f"Used letters = {used_letters}")
-        max_tries -= 1
-        print(hangman[max_tries])
-        print(f"Tries left = {max_tries}")
+        MAX_TRIES -= 1
+        print(hangman[MAX_TRIES])
+        print(f"Tries left = {MAX_TRIES}")
 # Confirms to user if they have manged to correctly guess the word or not 
-if guessed:
+if GUESSED:
     print(f"well done {name}, the correct word was {word}")
 else:
     print(f"You can do better than that {name}! The word was {word}")
