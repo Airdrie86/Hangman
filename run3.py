@@ -89,7 +89,7 @@ def game():
     lives = 6
     word = get_valid_word(words_available)
     current_guess = list("_" * len(word))
-    guessed = []
+    guessed = list("_" * len(word))
     guess = False
     used_letters = []
     print("Greetings Traveller! The game of Hangman awaits you!")
@@ -100,11 +100,12 @@ def game():
 
     while True:
         letter = input('Please guess a letter \n')
+        print(guessed)
 
         if letter in word:
             guessed.append(letter)
             print('correct')
-        elif letter == word:
+        if letter == word:
             guess = True
             if len(word) == len(guessed):
                 break
