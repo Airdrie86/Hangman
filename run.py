@@ -101,7 +101,7 @@ def game():
     while len(word) > 0 and lives > 0 and guess == False:
         letter = input(f'Please pick a letter or guess the word, {name}! \n')
         letter = letter.upper()
-       
+
         if letter in word:
             for i in range(len(word)):
                 alpha = word[i]
@@ -118,7 +118,7 @@ def game():
             print('You have already guessed that letter', letter)
             letter = input('Please guess a letter \n')
             letter = letter.upper()
-
+    
         else:
             used_letters.append(letter)
             print(f"Used letters = {used_letters}")
@@ -136,9 +136,9 @@ def game():
         
 
     if guess:
-        print(f"You can do better than that ! The word was {word}")
+        print(f"well done {name}, the correct word was {word}")
     else:
-        print(f"well done, the correct word was {word}")
+        print(f"You can do better than that {name}! The word was {word}")
 
 
 if __name__ == '__main__':
