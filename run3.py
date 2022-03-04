@@ -88,7 +88,6 @@ def get_valid_word(words):
 def game():
     lives = 6
     word = get_valid_word(words_available)
-    current_guess = list("_" * len(word))
     guessed = list("_" * len(word))
     guess = False
     used_letters = []
@@ -96,15 +95,28 @@ def game():
     print(hangman[6])
     name = input("Please enter your name:\n")
     print(f"Hello {name}! Welcome to Hangman!")
-    print(current_guess)
+    print(guessed)
 
-    while True:
+
+    while len(word) > 0 and lives > 0:
         letter = input('Please guess a letter \n')
+        letter = letter.upper()
         print(guessed)
 
+       
         if letter in word:
-            guessed.append(letter)
-            print('correct')
+            for i in range(len(word)):
+                alpha = word[i]
+                if letter == alpha:
+                    guessed[i] = letter
+            print(guessed)
+
+
+        elif letter in used_letters:
+            print('You have already guessed that letter', letter)
+            letter = input('Please guess a letter \n')
+            letter = letter.upper()
+
         if letter == word:
             guess = True
             if len(word) == len(guessed):
@@ -121,10 +133,10 @@ def game():
 
         
 
-    if guess:
-        print(f"well done, the correct word was {word}")
-    else:
+    if lives == 0:
         print(f"You can do better than that ! The word was {word}")
+    else:
+        print(f"well done, the correct word was {word}")
 
 
 if __name__ == '__main__':
