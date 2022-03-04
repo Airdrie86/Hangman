@@ -98,42 +98,43 @@ def game():
     print(guessed)
 
 
-    while len(word) > 0 and lives > 0:
-        letter = input('Please guess a letter \n')
+    while len(word) > 0 and lives > 0 and guess == False:
+        letter = (f"Please pick a letter {name} or guess the word:\n")
         letter = letter.upper()
-        print(guessed)
-
        
         if letter in word:
             for i in range(len(word)):
                 alpha = word[i]
                 if letter == alpha:
                     guessed[i] = letter
+            if '_' not in guessed:
+                guess = True
+            print(f"Lucky guess {name}!")
             print(guessed)
-
+            print(f"Used letters = {used_letters}")
 
         elif letter in used_letters:
             print('You have already guessed that letter', letter)
             letter = input('Please guess a letter \n')
             letter = letter.upper()
 
-        if letter == word:
-            guess = True
-            if len(word) == len(guessed):
-                break
-        
         else:
             used_letters.append(letter)
             print(f"Used letters = {used_letters}")
             lives -= 1
             print('wrong, lives left: ', lives)
             print(hangman[lives])
+            print(guessed)
             if lives == 0:
                 break
 
+        if letter == word:
+            guess = True
+            if len(word) == len(guessed):
+                break
         
 
-    if lives == 0:
+    if guess:
         print(f"You can do better than that ! The word was {word}")
     else:
         print(f"well done, the correct word was {word}")
