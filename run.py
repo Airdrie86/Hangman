@@ -112,6 +112,7 @@ def game():
             print(f"Lucky guess {name}!")
             print(guessed)
             print(f"Used letters = {used_letters}")
+            print(hangman[lives])
 
         elif letter in used_letters:
             print('You have already guessed that letter', letter)
