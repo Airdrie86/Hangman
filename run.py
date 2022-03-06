@@ -6,7 +6,7 @@ from words import words_available
 
 # The visuals for hangman(produced from stack overflow)
 hangman = [  # final state: head, torso, both arms, and both legs
-                """
+    """
                    --------
                    |      |
                    |      O
@@ -15,8 +15,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |     / \\
                    -
                 """,
-                # head, torso, both arms, and one leg
-                """
+    # head, torso, both arms, and one leg
+    """
                    --------
                    |      |
                    |      O
@@ -25,8 +25,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |     /
                    -
                 """,
-                # head, torso, and both arms
-                """
+    # head, torso, and both arms
+    """
                    --------
                    |      |
                    |      O
@@ -35,8 +35,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |
                    -
                 """,
-                # head, torso, and one arm
-                """
+    # head, torso, and one arm
+    """
                    --------
                    |      |
                    |      O
@@ -45,8 +45,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |
                    -
                 """,
-                # head and torso
-                """
+    # head and torso
+    """
                    --------
                    |      |
                    |      O
@@ -55,8 +55,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |
                    -
                 """,
-                # head
-                """
+    # head
+    """
                    --------
                    |      |
                    |      O
@@ -65,8 +65,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                    |
                    -
                 """,
-                # initial empty state
-                """
+    # initial empty state
+    """
                    --------
                    |      |
                    |
@@ -77,6 +77,8 @@ hangman = [  # final state: head, torso, both arms, and both legs
                 """
 ]
 
+# Get random word from words.py
+
 
 def get_valid_word(words):
     word = random.choice(words_available)
@@ -85,6 +87,7 @@ def get_valid_word(words):
     return word
 
 
+# Function for how the game will be played
 def game():
     alphabet_string = string.ascii_uppercase
     alphabet_list = list(alphabet_string)
@@ -99,8 +102,7 @@ def game():
     print(f"Hello {name}! Welcome to Hangman!")
     print(guessed)
 
-
-    while len(word) > 0 and lives > 0 and guess == False:
+    while len(word) > 0 and lives > 0 and guess is False:
         letter = input(f'Please pick a letter or guess the word, {name}! \n')
         letter = letter.upper()
 
@@ -131,7 +133,6 @@ def game():
             print(f"Used letters = {used_letters}")
             print(hangman[lives])
             print(guessed)
-            
 
         else:
             used_letters.append(letter)
@@ -147,7 +148,6 @@ def game():
             guess = True
             if len(word) == len(guessed):
                 break
-        
 
     if guess:
         print(f"well done {name}, the correct word was {word}")
