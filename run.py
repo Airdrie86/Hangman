@@ -116,7 +116,7 @@ def game():
             print(hangman[lives])
             print(guessed)
 
-        if letter in used_letters:
+        elif letter in used_letters:
             print('You have already guessed that letter', letter)
             letter = input('Please guess a letter \n')
             letter = letter.upper()
@@ -124,7 +124,7 @@ def game():
             print(hangman[lives])
             print(guessed)
 
-        if letter not in alphabet_list:
+        elif letter not in alphabet_list:
             print('Error: Please select a letter from the alphabet')
             letter = input('Please guess a letter \n')
             letter = letter.upper()
