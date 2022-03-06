@@ -86,6 +86,8 @@ def get_valid_word(words):
 
 
 def game():
+    alphabet_string = string.ascii_uppercase
+    alphabet_list = list(alphabet_string)
     lives = 6
     word = get_valid_word(words_available)
     guessed = list("_" * len(word))
@@ -110,15 +112,27 @@ def game():
             if '_' not in guessed:
                 guess = True
             print(f"Lucky guess {name}!")
-            print(guessed)
             print(f"Used letters = {used_letters}")
             print(hangman[lives])
+            print(guessed)
 
-        elif letter in used_letters:
+        if letter in used_letters:
             print('You have already guessed that letter', letter)
             letter = input('Please guess a letter \n')
             letter = letter.upper()
-    
+            print(f"Used letters = {used_letters}")
+            print(hangman[lives])
+            print(guessed)
+
+        if letter not in alphabet_list:
+            print('Error: Please select a letter from the alphabet')
+            letter = input('Please guess a letter \n')
+            letter = letter.upper()
+            print(f"Used letters = {used_letters}")
+            print(hangman[lives])
+            print(guessed)
+            
+
         else:
             used_letters.append(letter)
             print(f"Used letters = {used_letters}")
