@@ -78,18 +78,17 @@ hangman = [  # final state: head, torso, both arms, and both legs
 ]
 
 
-# Get random word from words.py
-
-
 def get_valid_word(words):
+    """ Get random word from words.py """
     word = random.choice(words_available)
     word = word.upper()
 
     return word
 
 
-# Function for how the game will be played
 def game():
+    """ Function for how the game will be played,
+    with help from Stackoverflow """
     alphabet_string = string.ascii_uppercase
     alphabet_list = list(alphabet_string)
     lives = 6
@@ -121,6 +120,7 @@ def game():
 
         elif letter in used_letters:
             print('You have already guessed that letter', letter)
+            print('To continue pick a letter and press enter')
             letter = input('Please guess a letter \n')
             letter = letter.upper()
             print(f"Used letters = {used_letters}")
@@ -129,6 +129,7 @@ def game():
 
         elif letter not in alphabet_list:
             print('Error: Please select a letter from the alphabet')
+            print('To continue pick a letter and press enter')
             letter = input('Please guess a letter \n')
             letter = letter.upper()
             print(f"Used letters = {used_letters}")
@@ -152,14 +153,14 @@ def game():
 
     if guess:
         print(f"well done {name}, the correct word was {word}")
-        restart_game()
+        play_again()
     else:
         print(f"You can do better than that {name}! The word was {word}")
-        restart_game()
+        play_again()
 
 
-def restart_game():
-    """ Gives player option to restart, otherwise returns to title screen """
+def play_again():
+    """ Gives the option to play again, otherwise returns to title screen """
     game_restart = False
 
     while not game_restart:
@@ -171,15 +172,16 @@ def restart_game():
 
         elif restart == "N":
             game_restart = True
-            print('Goodbye!')
+            print('GOODBYE!')
             end_game()
 
         else:
             print('You must select Y or N. Please try again.')
-            
+
 
 def end_game():
-    print("THANK YOU FOR PLAYIJNG HANGMAN {name}!")
+    """ Prints a message to the user, if they choose "N"  """
+    print("THANK YOU FOR PLAYING HANGMAN!")
 
 
 if __name__ == '__main__':
