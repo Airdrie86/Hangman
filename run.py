@@ -77,6 +77,7 @@ hangman = [  # final state: head, torso, both arms, and both legs
                 """
 ]
 
+
 # Get random word from words.py
 
 
@@ -151,8 +152,33 @@ def game():
 
     if guess:
         print(f"well done {name}, the correct word was {word}")
+        restart_game()
     else:
         print(f"You can do better than that {name}! The word was {word}")
+        restart_game()
+
+
+def restart_game():
+    """ Gives player option to restart, otherwise returns to title screen """
+    game_restart = False
+
+    while not game_restart:
+        restart = input('Would you like to play Hangman? (Y/N)\n').upper()
+
+        if restart == "Y":
+            game_restart = True
+            game()
+
+        elif restart == "N":
+            game_restart = True
+            print('Goodbye!')
+            game()
+
+        else:
+            print('You must select Y or N. Please try again.')
+
+def end_game():
+    
 
 
 if __name__ == '__main__':
