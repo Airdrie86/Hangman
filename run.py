@@ -120,8 +120,8 @@ def game():
 
         elif letter in used_letters:
             print('You have already guessed that letter', letter)
-            print('To continue pick a letter and press enter')
-            letter = input('Please guess a letter \n')
+            letter = input('To continue pick a letter and press enter\n')
+            letter = input('')
             letter = letter.upper()
             print(f"Used letters = {used_letters}")
             print(hangman[lives])
@@ -129,8 +129,7 @@ def game():
 
         elif letter not in alphabet_list:
             print('Error: Please select a letter from the alphabet')
-            print('To continue pick a letter and press enter')
-            letter = input('Please guess a letter \n')
+            letter = input('To continue pick a letter and press enter\n')
             letter = letter.upper()
             print(f"Used letters = {used_letters}")
             print(hangman[lives])
