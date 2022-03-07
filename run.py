@@ -172,13 +172,14 @@ def restart_game():
         elif restart == "N":
             game_restart = True
             print('Goodbye!')
-            game()
+            end_game()
 
         else:
             print('You must select Y or N. Please try again.')
+            
 
 def end_game():
-    
+    print("THANK YOU FOR PLAYIJNG HANGMAN {name}!")
 
 
 if __name__ == '__main__':
