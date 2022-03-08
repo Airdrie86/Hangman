@@ -118,7 +118,7 @@ def game():
             print(hangman[lives])
             print(guessed)
 
-        elif letter in used_letters:
+        elif letter in used_letters: # Let's users know what letters they have used
             print('You have already guessed that letter', letter)
             letter = input('To continue pick a letter and press enter\n')
             letter = input('')
@@ -127,7 +127,7 @@ def game():
             print(hangman[lives])
             print(guessed)
 
-        elif letter not in alphabet_list:
+        elif letter not in alphabet_list: # Tells user if they have not used a letter from the alphabet
             print('Error: Please select a letter from the alphabet')
             letter = input('To continue pick a letter and press enter\n')
             letter = letter.upper()
@@ -158,7 +158,7 @@ def game():
         play_again()
 
 
-def play_again():
+def play_again(): 
     """ Gives the option to play again, otherwise returns to title screen """
     game_restart = False
 
