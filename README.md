@@ -24,15 +24,17 @@ The game will atomatically generate a word, which will be visible as ("_") and t
 ![](assets/images/guess.png)
 * Confirms to the user when they have correctly guessed all letters or if they have ran out of tries and tells the user what the word was.
 ![](assets/images/end.png)
+*Added the abilty for the user to play again after they have finished.
 
 # Testing
 I have manually tested the following:
 
 * Passed the code through a PEP8 linter and confirmed there are no problems
 * Tested in my local terminal and the Code Institute Heroku terminal
+* Let multiple people try to play on different devices and give feedback on any issues/improvements
 
 # Bugs
-No bugs remaining
+Had an issue when an error occured during the game. The issue was if a letter or used letter was used that you had to click return to get back to the game. So added a statement so the user understood what to do.
 
 # Validator Testing
 * No errors were returned from PEP8online.com
@@ -50,4 +52,4 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 # Credits
 * Code Institute for the deployment terminal
 * Stackoverview
-* Wikipedia for the details of the Hanfman game
+* Wikipedia for the details of the Hangman game
